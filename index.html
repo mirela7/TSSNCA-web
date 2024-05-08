@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="Multi-texture synthesis using genome-coded signals for a NCA.">
+  <!-- <meta name="keywords" content="Nerfies, D-NeRF, NeRF"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DRAFT - Multi-Texture Synthesis through signal responsive NCA</title>
+  <title>Multi-Texture Synthesis through signal responsive NCA</title>
 
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -25,7 +25,7 @@
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <!-- <script src="./static/js/index.js"></script> -->
 </head>
 <body>
 
@@ -34,7 +34,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">[Draft] Multi-Texture Synthesis through signal responsive Neural Cellular Automata</h1>
+          <h1 class="title is-1 publication-title">Multi-Texture Synthesis through signal responsive Neural Cellular Automata</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               Catrina Mirela-Magdalena</span>
@@ -135,35 +135,27 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et est vitae massa porta 
-          fringilla in nec lacus. Phasellus eget ultrices diam. Vivamus iaculis sapien eget nibh 
-          pretium, quis mollis orci rutrum. Donec fermentum mi at elit ornare, vel maximus augue
-          ultrices. Etiam sagittis elit sed quam scelerisque, eget tempus risus commodo. 
-          Phasellus non est semper, hendrerit lacus ac, facilisis nisi. Nulla euismod vestibulum maximus.
-          Aenean tincidunt gravida mi eget scelerisque. Maecenas ultrices neque fermentum, dignissim diam vehicula, 
-          consectetur leo. Etiam faucibus purus vitae vestibulum convallis. 
+          <p> Neural cellular automata (NCA) have been proven effective in a variety of areas, with numerous
+            biologically inspired applications. We believe that NCAs fit perfectly to the task of generating 
+            textures: they model global patterns from local interactions governed by uniform, consistent rules, 
+            enhancing structured, near-regular patterns. Therefore, this project aims to increase the usability of 
+            NCAs in texture synthesis by addressing a shortcoming in current NCA architectures for texture generation:
+            the necessity for one trained NCA per texture. Thus we train one NCA to evolve into multiple textures provided
+            by example. Our solution relies on providing texture information in the seed, as a genomically-coded internal 
+            signal that the NCA interprets and yield the expected texture. Particularly, we define a few hidden channels of 
+            the cell's state to be genome channels. 
           </p>
-          <p>
-          Integer leo libero, sagittis a tempus vel, cursus iaculis nisl. Phasellus mattis odio nunc,
-          pretium tincidunt elit ornare in. Nunc nec leo enim.
+          <p> Employing this architecture leads to an extended range of behaviours exhibited by our NCA. Generating 
+            multiple textures from one NCA allows us to test interpolation behaviours between learned examples and grafting
+            techniques, while enhancing the well-known NCA property of regeneration, further emphasizing the editability of
+            generated textures and the possibility of multiple textures joining and coexisting in one automaton. We address
+            questions relating the extent to which our NCA uses the genomic information and proper loss function selection 
+            based on the properties of selected example images.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
   </div>
 </section>
 
@@ -174,9 +166,13 @@
     <h2 class="title is-3"> Results </h2>
     
     <h2 class="title is-4">Generation</h2>
-    <p> Below we visualize the evolution of a neural cellular automata (NCA), with less than
-    6k parameters, trained on 8 different textures. The size of the generated textures is 
-    256 x 256, whereas the examples fed during training are of resolution 128 x 128. </p>
+    <p> Below we visualize the evolution of a neural cellular automata (NCA), with 4270 parameters, 
+    trained on 8 different textures. The size of the generated textures is 256 x 256, whereas the examples 
+    fed during training are of resolution 128 x 128. </p>
+    
+    <img src="./static/images/Texture-to-genome.jpg"
+      class="interpolation-image"
+      alt="Interpolate start reference image."/>
     <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
       <source src="./static/videos/cmp-8Textures256-small.mp4"
               type="video/mp4">
@@ -252,12 +248,14 @@
           <source src="./static/videos/video-256-g0_0_0-regeneration_genome000-sppeed1-80.mp4"
                   type="video/mp4">
         </video>
+        <p> Behaviour before adjusting the training methodology to enhance regeneration. </p>
       </div>
       <div class="column content">
         <video poster="" id="4-together" autoplay controls muted loop playsinline height="100%">
           <source src="./static/videos/video-256-g1_0-regeneration_genome10-spped1-80.mp4"
                   type="video/mp4">
         </video>
+        <p> Behaviour after adjusting the methodology.</p>
       </div>
       <div class="column content">
         <video poster="" id="4-together" autoplay controls muted loop playsinline height="100%">
@@ -278,31 +276,30 @@
           <p>
             Given the added genome channels, we can nou interpolate between textures known by the same automaton:
           </p>
-          <img src="./static/images/interp-all.png"
+          <img src="./static/images/NCA - LFC+Lic - interpolation-first-example.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+          <img src="./static/images/NCA - LFC+Lic - interpolation-more-examples.jpg"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
         </div>
         
-        <div class="columns is-centered">
+        <!-- <div class="columns is-centered">
       
           <div class="column content">
             <img src="./static/images/interp-small.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
-            <!-- <p> 
-              <p class="mt-4"> We observe the evolution of a NCA trained on 4 different textures. </p> -->
           </div>
     
           <div class="column content">
             <img src="./static/images/interp-small2.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
-            <!-- <p> We observe the evolution of a NCA trained on 4 similar textures. It is more unstable,
-            after a large number of steps the genome information seems to be lost and the textures
-            converge towards other genomes. </p> -->
-          </div>
+            
+          </div> -->
     
-        </div>
+        <!-- </div> -->
         <br/>
         <!--/ Interpolating. -->
 
@@ -311,7 +308,7 @@
         <div class="content has-text-justified">
           <p>
             Grafting allows us to generate multiple textures through the same instance. Cells are initialized with wanted genomes, 
-            and they evolve and interact.
+            they evolve and interact.
           </p>
         </div>
         <div class="columns is-centered">
@@ -360,11 +357,66 @@
     </div>
     <!--/ Animation. -->
 
+    <!-- Discussions -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Discussions</h2>
+
+        <h2 class="title is-4">Preservation of the genome</h2>
+        <p> Given the diversity of the generated textures in our experiments, a question
+          arises: does the automaton know how to preserve and generate based solely
+          on the perception stage and vicinity's properties, or does it also maintain the
+          genome information to gather stability?
+          </p>
+  
+          <img src="./static/images/NCA - LFC+Lic - Vicinity-Evolution.jpg"
+          class="interpolation-image"
+          alt="Interpolate start reference image."/>
+
+      </div>
+    </div>
+    <!-- /Discussions -->
+
 
     <!-- Concurrent Work. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Arhitecture details</h2>
+        <h2 class="title is-4">NCA Pass</h2>
+        
+        
+        <img src="./static/images/NCA - Pass.jpg"
+          class="interpolation-image"
+          alt="Interpolate start reference image."/>
+
+          
+          <p>A NCA pass is illustrated above and consists of 2 major steps: </p>
+          <ul class="mb-3">
+            <li><b>perception: </b> employs 4 kernels Identity, Sobelx, Sobely Laplacian
+               to convolute over each channel of the NCA state and offer the perception values for the next stage. </li>
+            <li><b>state processing: </b> done using a Neural Network with one hidden layer and kernels of size
+            1x1, simulating the per-cell, independent, state processing. </li>
+          </ul>
+
+          <h2 class="title is-4 mt-4">Loss function</h2>
+          <div style="display: flex; align-items: center; flex-direction: column;">
+            <img src="./static/images/Loss-vgg.png"
+            class="interpolation-image"
+            alt="Loss vgg." style="width: 50%;"/>
+              <p class="mt-4" style="align-self: flex-start;"> The Sliced Wasserstein Loss is calculated
+              on feature maps extracted from a VGG16 pass for the example and generated image. </p>
+          </div>
+
+          <div style="display: flex; align-items: center; flex-direction: column;">
+            <img src="./static/images/NCA - Loss meaning.jpg"
+              class="interpolation-image"
+              alt="Loss meaning." style="width: 50%;"/>
+              <!-- <p class="mt-4" style="align-self: flex-start;"> </p> -->
+            <p class="mt-4" style="align-self: flex-start;"> It is calculated between each feature maps
+            by projecting the feature vectors onto multiple random directions and calculating the 1D OT
+            distances between the obtained sorted scalars using MSE. </p>
+          </div>
+
       </div>
     </div>
     <!--/ Concurrent Work. -->
@@ -373,29 +425,25 @@
 </section>
 
 
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
 </code></pre>
   </div>
-</section>
+</section> -->
 
 
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <!-- <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a> -->
     </div>
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
+
+          <p>This website is used to provide additional materials for AFCO presentation and is 
+            not a standalone project description.</p>
           <p>
             Website source code is based on the Nerfies project page. If you want to reuse 
             their  <a
